@@ -1,7 +1,7 @@
 from flask import Flask, render_template_string
 import folium
 import requests
-from database import interests
+from database import users
 
 app = Flask(__name__)
 
