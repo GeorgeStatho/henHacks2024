@@ -3,8 +3,14 @@ import folium
 import requests
 app = Flask(__name__)
 
-def add_markers():
-    return 0
+def convert_Address_To_Coord(person):
+    address=person.address
+    
+
+
+
+
+
 
 
 @app.route("/")
