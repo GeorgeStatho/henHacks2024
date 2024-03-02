@@ -10,3 +10,5 @@
 *.typed
 *.pyi
 *.exe
+*.bat
+*.png
