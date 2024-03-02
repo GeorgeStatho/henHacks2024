@@ -2,6 +2,7 @@ from flask import Flask, render_template_string
 import folium
 import requests
 from database import users
+import math
 
 app = Flask(__name__)
 
@@ -10,10 +11,10 @@ def convert_Address_To_Coord(person):
     
 
 
-
-
-
-
+def get_distance(lat1, lat2, lon1, lon2):
+    distkm = math.acos(math.sin(lat1)*math.sin(lat2)+math.cos(lat1)*math.cos(lat2)*math.cos(lon2-lon1))*6371
+    distmile = distkm / 1.609
+    return distmile
 
 @app.route("/")
 def display_map_data():
