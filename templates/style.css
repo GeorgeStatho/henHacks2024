@@ -1,0 +1,20 @@
+label {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+}
+
+div {
+    margin-bottom: 10%;
+    float:center;
+}
+
+.title {
+    text-align: center;
+}
+
+.title_heading {
+    padding: 3%;
+    border:1%;
+    border-color: black;
+    background-color: coral;
+}

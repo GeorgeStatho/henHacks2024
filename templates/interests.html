@@ -2,17 +2,28 @@
 <html>
     <head>
         <title>Interest Form</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h3>Please enter your interests below</h3>
+        <div class="title_heading"><h3 class="title">Please enter your interests below</h3></div>
         <form>
+            <div class="forms">
             <label for="interest">Interest:</label>
+            <br>
             <input type="text" id="interest" name="interest" onkeypress="getUserInterest()">
-            <label for="name">Enter your name:</label>
-            <input type="text" id="name" name="name" onkeypress="getUserName()">
-            <label for="location">Enter your location:</label>
-            <input type="text" id="location" name="location" onkeypress="getLocation()">
+            </div>
 
+            <div class="forms">
+            <label for="name">Enter your name:</label>
+            <br>
+            <input type="text" id="name" name="name" onkeypress="getUserName()">
+            </div>
+
+            <div class="forms">
+            <label for="address">Enter your address:</label>
+            <br>
+            <input type="text" id="address" name="address" onkeypress="getLocation()">
+            </div>
         </form>
         <script>
             function enterKeyPressed() {
@@ -34,7 +45,7 @@
             }
             function getLocation() {
                 if (enterKeyPressed()) {
-                    var location = document.getElementById("location").value;
+                    var location = document.getElementById("address").value;
                     alert(location);
                 }
             }
