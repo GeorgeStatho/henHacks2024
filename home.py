@@ -11,6 +11,6 @@ data = {
 response = requests.get(url, params=data)
 print(response.text)
 @app.route("/")
-def hello_world():
+def map_data():
     return response.text
 
