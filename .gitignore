@@ -1,0 +1,11 @@
+*.cfg
+*.pyc
+*.txt
+!README.txt
+*.py
+!finderapp.py
+!groupfinder.py
+!home.py
+*.rst
+*.typed
+*.pyi
