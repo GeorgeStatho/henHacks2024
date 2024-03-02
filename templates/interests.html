@@ -6,7 +6,15 @@
     <body>
         <h3>Please enter your interests below</h3>
         <form>
-            <input type="text" id="interest" name="interest">
+            <input type="text" id="interest" name="interes1t" onkeypress="getUserInterest()">
         </form>
+        <script>
+            function getUserInterest() {
+                if (event.keyCode == 13) {
+                    var interest = document.getElementById("interest");
+                    alert(interest);
+                }
+            }
+        </script>
     </body>
 </html>
