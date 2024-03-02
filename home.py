@@ -1,6 +1,7 @@
 from flask import Flask, render_template_string
 import folium
 import requests
+from database import interests
 app = Flask(__name__)
 
 def convert_Address_To_Coord(person):
