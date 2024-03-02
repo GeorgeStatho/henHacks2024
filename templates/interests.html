@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Interest Form</title>
+    </head>
+    <body>
+        <h3>Please enter your interests below</h3>
+        <form>
+            <label for="interest">Interest:</label>
+            <input type="text" id="interest" name="interest" onkeypress="getUserInterest()">
+            <label for="name">Enter your name:</label>
+            <input type="text" id="name" name="name" onkeypress="getUserName()">
+            <label for="location">Enter your location:</label>
+            <input type="text" id="location" name="location" onkeypress="getLocation()">
+
+        </form>
+        <script>
+            function enterKeyPressed() {
+                if (event.keyCode == 13) {
+                    return true;
+                }
+            }
+            function getUserInterest() {
+                if (event.keyCode == 13) {
+                    var interest = document.getElementById("interest").value;
+                    alert(interest);
+                }
+            }
+            function getUserName() {
+                if (enterKeyPressed()) {
+                    var userName = document.getElementById("name").value;
+                    alert(userName);
+                }
+            }
+            function getLocation() {
+                if (enterKeyPressed()) {
+                    var location = document.getElementById("location").value;
+                    alert(location);
+                }
+            }
+        </script>
+    </body>
+</html>
