@@ -4,12 +4,14 @@ import requests
 app = Flask(__name__)
 
 def convert_Address_To_Coord(person):
-    address=person.address
-    
-
-
-
-
+    #Assuming Adresses will be with Street name and number, town, state, zipcode, in that order
+    #Note: Street Number and name assumed to have no space inbetween them.
+    address=person.address.split()
+    url = "https://us1.locationiq.com/v1/search?key=pk.5bc12968439e6e5392783b5b71ad364a"
+    for i in address:
+        url+=i+"%20"
+    headers = {"accept": "application/json"}
+    response = requests.get(url, headers=headers)
 
 
 
