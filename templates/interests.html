@@ -43,7 +43,7 @@
                     this.longitude = longitude;
                 }
             }
-            var example_person = new Person("Track", "Bob", 39.685008, -75.750213);
+            var interestlist = [new Person("Track", "Bob", 39.685008, -75.750213), new Person("Smash", "George", 60.3, -15.1), new Person("Reading", "Steve", 39.40413 -75.45104)]
             function getUserInterest() {
                 var interest = document.getElementById("interest").value;
                 alert(interest);
@@ -75,12 +75,23 @@
                 alert(distance);
                 return user;
             }
+            function checkInterest(person) {
+                var matchinginterest = [];
+                for (let x of interestlist) {
+                    if (person.interest === x.interest) {
+                        matchinginterest.push(x);
+                    }
+                }
+                return matchinginterest;
+            }
             function getDistance(person) {
-                var distmiles = Math.acos(Math.sin(person.latitude)*Math.sin(example_person.latitude)+Math.cos(person.latitude)*Math.cos(example_person.latitude)*Math.cos(example_person.longitude-person.longitude))*6371/1.609;
+                var distlist = [];
+                for (let x of checkInterest(person)) {
+                    var distmiles = Math.acos(Math.sin(person.latitude)*Math.sin(x.latitude)+Math.cos(person.latitude)*Math.cos(x.latitude)*Math.cos(x.longitude-person.longitude))*6371/1.609;
+                    distlist.push(distmiles)
+                }
                 return distmiles;
             }
-
-
         </script>
     </body>
 </html>
