@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Interest Form</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -10,44 +11,57 @@
             <div class="forms">
             <label for="interest">Interest:</label>
             <br>
-            <input type="text" id="interest" name="interest" onkeypress="getUserInterest()">
+            <input type="text" id="interest" name="interest">
+            
             </div>
 
             <div class="forms">
             <label for="name">Enter your name:</label>
             <br>
-            <input type="text" id="name" name="name" onkeypress="getUserName()">
+            <input type="text" id="name" name="name">
             </div>
 
             <div class="forms">
             <label for="address">Enter your address:</label>
             <br>
-            <input type="text" id="address" name="address" onkeypress="getLocation()">
+            <input type="text" id="address" name="address">
             </div>
         </form>
+        <button onclick="sendData()">Send Data</button> 
         <script>
-            function enterKeyPressed() {
-                if (event.keyCode == 13) {
-                    return true;
+            class Person {
+                constructor(interest, name, latitude, longitude) {
+                    this.interest = interest;
+                    this.name = name;
+                    this.latitude = latitude;
+                    this.longitude = longitude;
                 }
             }
             function getUserInterest() {
-                if (event.keyCode == 13) {
-                    var interest = document.getElementById("interest").value;
-                    alert(interest);
-                }
+                var interest = document.getElementById("interest").value;
+                alert(interest);
+                return interest;
+                
             }
             function getUserName() {
-                if (enterKeyPressed()) {
-                    var userName = document.getElementById("name").value;
-                    alert(userName);
-                }
+                var userName = document.getElementById("name").value;
+                alert(userName);
+                return userName;
             }
             function getLocation() {
-                if (enterKeyPressed()) {
-                    var location = document.getElementById("address").value;
-                    alert(location);
-                }
+                var location = document.getElementById("address").value;
+                alert(location);
+                return location;
+            }
+            function sendData() { 
+                var interest = getUserInterest();
+                var userName = getUserName();
+                var location = getLocation();
+                var user = new Person(interest, userName, location);
+                return user;
+            }
+            function getDistance(person) {
+                var distkm = Math.acos(Math.sin(lat1)*Math.sin(lat2)+Math.cos(lat1)*Math.cos(lat2)*Math.cos(lon2-lon1))*6371
             }
         </script>
     </body>

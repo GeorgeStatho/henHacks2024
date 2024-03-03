@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string
+from flask import Flask, render_template_string, render_template, request
 import folium
 import requests
 from database import users
