@@ -11,8 +11,8 @@ def convert_Address_To_Coord(person):
     #Note: Street Number and name assumed to have no space inbetween them.
     address=person.address.split()
     url = "https://us1.locationiq.com/v1/search/structured?key=pk.5bc12968439e6e5392783b5b71ad364a"
-    for i in range(address.length()):
-        if(i<address.length()-2):
+    for i in range(len(address)-1):
+        if(i<len(address)-1):
             url+=address[i]+"%20"
         else:
             url+=address[i]+"&format=json&"
