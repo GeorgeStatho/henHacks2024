@@ -28,6 +28,9 @@ def get_distance(lat1, lat2, lon1, lon2):
     distmile = distkm / 1.609
     return distmile
 
+def place_marker(lat,lon):
+    return 0
+
 @app.route("/")
 def display_map_data():
     m=folium.Map(location=(39.683723, -75.749657))
