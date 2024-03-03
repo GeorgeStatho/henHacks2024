@@ -10,13 +10,17 @@ def convert_Address_To_Coord(person):
     #Assuming Adresses will be with Street name and number, town, state, zipcode, in that order
     #Note: Street Number and name assumed to have no space inbetween them.
     address=person.address.split()
-    url = "https://us1.locationiq.com/v1/search?key=pk.5bc12968439e6e5392783b5b71ad364a"
+    url = "https://us1.locationiq.com/v1/search/structured?key=pk.5bc12968439e6e5392783b5b71ad364a"
     for i in range(address.length()):
-        url+=i+"%20"
+        if(i<address.length()-2):
+            url+=address[i]+"%20"
+        else:
+            url+=address[i]+"&format=json&"
     headers = {"accept": "application/json"}
-    response = requests.get(url, headers=headers)
-
-    
+    response = requests.get(url, headers=headers).json()
+    lat=response["lat"]
+    lon=response["lon"]
+    return lat,lon
 
 
 def get_distance(lat1, lat2, lon1, lon2):
