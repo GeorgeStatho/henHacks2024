@@ -22,10 +22,16 @@
             </div>
 
             <div class="forms">
-            <label for="address">Enter your address:</label>
+            <label for="long">Enter your longitude:</label>
             <br>
-            <input type="text" id="address" name="address">
+            <input type="text" id="long" name="long">
             </div>
+
+            <div class="forms">
+                <label for="lat">Enter your longitude:</label>
+                <br>
+                <input type="text" id="lat" name="lat">
+            </div>            
         </form>
         <button onclick="sendData()">Send Data</button> 
         <script>
@@ -37,6 +43,7 @@
                     this.longitude = longitude;
                 }
             }
+            var example_person = new Person("Track", "Bob", 39.685008, -75.750213);
             function getUserInterest() {
                 var interest = document.getElementById("interest").value;
                 alert(interest);
@@ -48,21 +55,32 @@
                 alert(userName);
                 return userName;
             }
-            function getLocation() {
-                var location = document.getElementById("address").value;
-                alert(location);
-                return location;
+            function getLong() {
+                var long = document.getElementById("long").value;
+                alert(long);
+                return long;
+            }
+            function getLat() {
+                var lat = document.getElementById("lat").value;
+                alert(lat);
+                return lat;
             }
             function sendData() { 
                 var interest = getUserInterest();
                 var userName = getUserName();
-                var location = getLocation();
-                var user = new Person(interest, userName, location);
+                var long = getLong();
+                var lat = getLat();
+                var user = new Person(interest, userName, long, lat);
+                var distance = getDistance(user);
+                alert(distance);
                 return user;
             }
             function getDistance(person) {
-                var distkm = Math.acos(Math.sin(lat1)*Math.sin(lat2)+Math.cos(lat1)*Math.cos(lat2)*Math.cos(lon2-lon1))*6371
+                var distmiles = Math.acos(Math.sin(person.latitude)*Math.sin(example_person.latitude)+Math.cos(person.latitude)*Math.cos(example_person.latitude)*Math.cos(example_person.longitude-person.longitude))*6371/1.609;
+                return distmiles;
             }
+
+
         </script>
     </body>
 </html>
