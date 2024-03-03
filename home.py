@@ -28,8 +28,12 @@ def get_distance(lat1, lat2, lon1, lon2):
     distmile = distkm / 1.609
     return distmile
 
-def place_marker(lat,lon):
-    return 0
+def place_marker(target,people,max_distance,map):
+    target_lat,target_lon=convert_Address_To_Coord(target)
+    for person in people:
+        person_lat,person_lon=convert_Address_To_Coord(person)
+        if(get_distance(target_lat,target_lon,person_lat,person_lon)<max_distance):
+            folium.Marker(location=[person_lat,person_lon],name=person.name).add_to(map)
 
 @app.route("/")
 def display_map_data():
